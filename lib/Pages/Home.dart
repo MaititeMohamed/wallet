@@ -108,7 +108,9 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        TransactionHistory(),
+         TransactionHistory(),
+
+
 
 
 
