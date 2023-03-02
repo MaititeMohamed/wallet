@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'AllTransactionHistory.dart';
+
 
 class TransactionHistory extends StatefulWidget {
   @override
@@ -18,7 +20,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 2), // changes position of shadow
+            offset: Offset(0, 2),
           ),
         ],
         borderRadius: BorderRadius.circular(10),
@@ -26,18 +28,40 @@ class _TransactionHistoryState extends State<TransactionHistory> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Transaction History",
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Transaction History",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AllTransactionHistory(),
+                    ),
+                  );
+                },
+                child: Text(
+                  "Show All",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+            ],
           ),
           SizedBox(height: 16),
           ListView.builder(
             shrinkWrap: true,
-            itemCount: 5,
+            itemCount: 4,
             itemBuilder: (BuildContext context, int index) {
               String title = (index % 2 == 0) ? "Withdraw" : "Deposit";
               Color color = (index % 2 == 0) ? Colors.red : Colors.green;
@@ -52,7 +76,7 @@ class _TransactionHistoryState extends State<TransactionHistory> {
                       color: Colors.grey.withOpacity(0.5),
                       spreadRadius: 2,
                       blurRadius: 5,
-                      offset: Offset(0, 2), // changes position of shadow
+                      offset: Offset(0, 2),
                     ),
                   ],
                 ),
@@ -80,6 +104,8 @@ class _TransactionHistoryState extends State<TransactionHistory> {
         ],
       ),
     );
+
+
   }
 }
 
