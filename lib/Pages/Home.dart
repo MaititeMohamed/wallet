@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
+import '../Widgets/TransactionHistory.dart';
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
+
 }
 
 class _HomeState extends State<Home> {
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -104,82 +108,7 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-    SingleChildScrollView(
-    child: Padding(
-    padding: EdgeInsets.symmetric(
-    vertical: 10,
-    horizontal: 10,
-    ),
-    child: Column(
-    children: [
-    //single Item
-    Padding(
-    padding: EdgeInsets.symmetric(vertical: 10),
-    child: Container(
-    width: double.infinity, // use full available width
-    height: 90,
-    decoration: BoxDecoration(
-    color: Colors.white,
-    borderRadius: BorderRadius.circular(10),
-    boxShadow: [
-    BoxShadow(
-    color: Colors.grey.withOpacity(0.5),
-    spreadRadius: 3,
-    blurRadius: 10,
-    offset: Offset(0, 3),
-    )
-    ],
-    ),
-    child: Row(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-    InkWell(
-    onTap: (){
-    },
-    child: Container(
-    alignment: Alignment.center,
-    child: Image.asset(
-    "images/avatar.png",
-    height: 100,
-    width: 120, // reduce width to fit better
-    ),
-    ),
-    ),
-    SizedBox(width: 10),
-    Expanded(
-    child: Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-    Text(
-    "Withraw ",
-    style: TextStyle(
-
-    fontSize: 22,
-    fontWeight: FontWeight.bold,
-    ),
-    ),
-    ],
-    ),
-    ),
-    Column(
-    mainAxisAlignment: MainAxisAlignment.spaceAround,
-    children: [
-      Text(
-        "- \$ 100 ",
-        style: TextStyle(
-          color: Colors.red,
-          fontSize: 22,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ],
-    ),
-    SizedBox(width: 10),
-    ],
-    ),
-    ),
-    ),
+        TransactionHistory(),
 
 
 
@@ -187,13 +116,6 @@ class _HomeState extends State<Home> {
 
 
 
-
-
-
-    ],
-    ),
-    ),
-    ),
 
 
 
@@ -201,3 +123,4 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
