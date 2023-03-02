@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class Wallet extends StatefulWidget {
   @override
   _WalletState createState() => _WalletState();
@@ -10,5 +11,6 @@ class _WalletState extends State<Wallet> {
     return Center(
       child: Text('Wallet'),
     );
+
   }
 }

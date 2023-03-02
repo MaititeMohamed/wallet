@@ -32,7 +32,8 @@ class _MyAppState extends State<MyApp> {
           accentColor: Colors.orange
       ),
       home: Scaffold(
-        appBar: AppBar(
+     /*
+       appBar: AppBar(
           leading: IconButton(
             icon: Icon(Icons.account_balance_wallet),
             onPressed: () { /* do something */ },
@@ -47,6 +48,7 @@ class _MyAppState extends State<MyApp> {
           ],
           //title: Text('Bottom Navigation Bar Example'),
         ),
+     */
         body: _children[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
