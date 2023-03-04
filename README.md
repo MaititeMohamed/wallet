@@ -21,8 +21,8 @@ You are required to use the Flutter framework while ensuring the maintenance of 
 
 ## SmartWallet micro-service
 
-Clone the project
+Api
 
 ```bash
-  git clone https://github.com/MaititeMohamed/smartWallet.git
+  http://165.232.123.254:8080/api/v1/transactions/
 ```
