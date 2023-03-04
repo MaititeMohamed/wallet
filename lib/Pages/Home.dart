@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../Widgets/Deposit.dart';
 import '../Widgets/TransactionHistory.dart';
 
 class Home extends StatefulWidget {
@@ -94,7 +95,14 @@ class _HomeState extends State<Home> {
                 ),
               ),
               ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Deposit();
+                    },
+                  );
+                },
                 icon: Icon(Icons.arrow_upward),
                 label: Text('Deposit'),
                 style: ElevatedButton.styleFrom(
@@ -105,6 +113,8 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
+
+
             ],
           ),
         ),
