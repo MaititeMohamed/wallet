@@ -108,10 +108,7 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-         TransactionHistory(),
-
-
-
+        Container(child: TransactionHistory() ,),
 
 
 

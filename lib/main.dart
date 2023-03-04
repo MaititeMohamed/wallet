@@ -16,7 +16,12 @@ class _MyAppState extends State<MyApp> {
 
   int _currentIndex = 0;
 
-  final List<Widget> _children = [    Home(),    Wallet(),    Profile(),   Settings()  ];
+  final List<Widget> _children = [
+    Home(),
+    Wallet(),
+    Profile(),
+    Settings(),
+  ];
 
   void onTabTapped(int index) {
     setState(() {
@@ -29,63 +34,62 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primaryColor: Colors.blue,
-          accentColor: Colors.orange
+        primaryColor: Colors.blue,
+        accentColor: Colors.orange,
       ),
       home: Scaffold(
-     /*
-       appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.account_balance_wallet),
-            onPressed: () { /* do something */ },
-          ),
-          actions: <Widget>[
-            IconButton(
-              icon: CircleAvatar(
-                backgroundImage: NetworkImage('https://via.placeholder.com/150'),
-              ),
-              onPressed: () { /* do something */ },
-            ),
-          ],
-          //title: Text('Bottom Navigation Bar Example'),
-        ),
-     */
         body: _children[_currentIndex],
-        bottomNavigationBar: BottomNavigationBar(
+        bottomNavigationBar: BottomNavBar(
           currentIndex: _currentIndex,
-          onTap: onTabTapped,
-          backgroundColor: Colors.white,
-          selectedItemColor: Colors.blue,
-          unselectedItemColor: Colors.grey,
-          showUnselectedLabels: true,
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home'
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.account_balance_wallet),
-                label: 'Wallet'
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Profile'
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                label: 'Settings'
-            ),
-          ],
+          onTabTapped: onTabTapped,
         ),
       ),
     );
   }
 }
 
+class BottomNavBar extends StatefulWidget {
+  final int currentIndex;
+  final Function(int) onTabTapped;
 
+  const BottomNavBar({
+    Key? key,
+    required this.currentIndex,
+    required this.onTabTapped,
+  }) : super(key: key);
 
+  @override
+  _BottomNavBarState createState() => _BottomNavBarState();
+}
 
-
-
-
-
+class _BottomNavBarState extends State<BottomNavBar> {
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      currentIndex: widget.currentIndex,
+      onTap: widget.onTabTapped,
+      backgroundColor: Colors.white,
+      selectedItemColor: Colors.blue,
+      unselectedItemColor: Colors.grey,
+      showUnselectedLabels: true,
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.account_balance_wallet),
+          label: 'Wallet',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          label: 'Profile',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.settings),
+          label: 'Settings',
+        ),
+      ],
+    );
+  }
+}
